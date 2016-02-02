@@ -30,7 +30,7 @@
         Bla Bla Bla...
     </div>
 
-    <div id="moppenCanvas">
+    <div style="text-align: center;" id="moppenCanvas">
         <!-- Hoort leeg te zijn. -->
     </div>
 
@@ -47,27 +47,54 @@
 
         //document.getElementById("roodBlok").innerHTML = "Dag Allemaal!"
 
+        //Hier definieer ik alle moppen voor verder gebruik.
+        mop1 = "Ik drink maar bij twee gelegenheden alcohol: Als ik dorst heb en als ik geen dorst heb.";
+        mop2 = "Als je niet rookt sterf je ook. Alleen wat rijker...";
+        mop3 = "Hoe noem je een onjuiste kerkdienst? Mis!";
+        mop4 = "Wat is Mark Rutte's lievelings chocolade? Rutter Sport!";
+        mop5 = "Het is blauw en niet zwaar, wat is het? Lichtblauw!";
+        mop6 = "De conducteur: 'Hey, doe je dat thuis ook?' Pa: 'Nee meneer, want thuis heb ik geen trein.'";
+        mop7 = "Om 7 uur hebben wij﻿ een warm buffet, om half 8 een lauw buffet, en om 8 uur een koud buffet.";
+        mop8 = "Er is niets zo charmant, als een spreuk aan de wand.";
+        mop9 = "Humor heeft ook zijn leuke kanten";
+        mop10 = "In Aadorp is de openbare begraafplaats afgebrand… 80 doden.";
+
         function MoppenGenerator() {
             // Genereerd een random nummer tussen de 1 en 3.
-            MoppenGeneratorNummer = Math.floor(Math.random() * 5) + 1
+            MoppenGeneratorNummer = Math.floor(Math.random() * 10) + 1
             console.log("Gegenereerd MoppenNummer: " + MoppenGeneratorNummer);
 
             // Print een mop aan de hand van het gegenereerde nummer in MoppenGeneratorNummer of geeft een error.
             if (MoppenGeneratorNummer == 1) {
-                console.log("Mop 1");
-                document.getElementById("moppenCanvas").innerHTML = "Dit is de eerste mop!"
+                console.log(mop1);
+                document.getElementById("moppenCanvas").innerHTML = mop1
             } else if (MoppenGeneratorNummer == 2) {
-                console.log("Mop 2");
-                document.getElementById("moppenCanvas").innerHTML = "Dit is de tweede mop!"
+                console.log(mop2);
+                document.getElementById("moppenCanvas").innerHTML = mop2
             } else if (MoppenGeneratorNummer == 3) {
-                document.getElementById("moppenCanvas").innerHTML = "Dit is de derde mop!"
-                console.log("Mop 3");
+                document.getElementById("moppenCanvas").innerHTML = mop3
+                console.log(mop3);
             } else if (MoppenGeneratorNummer == 4) {
-                document.getElementById("moppenCanvas").innerHTML = "Dit is de vierde mop!"
-                console.log("Mop 4");
+                document.getElementById("moppenCanvas").innerHTML = mop4
+                console.log(mop4);
             } else if (MoppenGeneratorNummer == 5) {
-                document.getElementById("moppenCanvas").innerHTML = "Dit is de vijfde mop!"
-                console.log("Mop 5");
+                document.getElementById("moppenCanvas").innerHTML = mop5
+                console.log(mop5);
+            } else if (MoppenGeneratorNummer == 6) {
+                console.log(mop6);
+                document.getElementById("moppenCanvas").innerHTML = mop6
+            } else if (MoppenGeneratorNummer == 7) {
+                document.getElementById("moppenCanvas").innerHTML = mop7
+                console.log(mop7);
+            } else if (MoppenGeneratorNummer == 8) {
+                document.getElementById("moppenCanvas").innerHTML = mop8
+                console.log(mop8);
+            } else if (MoppenGeneratorNummer == 9) {
+                document.getElementById("moppenCanvas").innerHTML = mop9
+                console.log(mop9);
+            } else if (MoppenGeneratorNummer == 10) {
+                document.getElementById("moppenCanvas").innerHTML = mop10
+                console.log(mop10);
             } else {
                 console.log("ERROR 404: Mop not found.");
             }
