@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>S4D | Crash Course JavaScript</title>
+</head>
+<body>
+    <div style="text-align: center; font-family: 'Open Sans';">
+        <a href="index.html">
+            <h1 style="margin-bottom: -5px;">Scripting 4 Designers</h1>
+            <h2>Crash Course JavaScript</h2>
+        </a>
+    </div>
+
+    <div>
+        <a href="5.3.html_uitlezen.html"><h5>5.3. HTML Uitlezen</h5></a>
+        <a href="moppen_tappen.html"><h5>6.4. Moppen Tappen</h5></a>
+    </div>
+
+    <div id="roodBlok" style="margin:100px;
+                             background-color:red;
+                             padding:20px;
+                             color:white">
+        Hello World!
+    </div>
+    <div id="greenBlok" style="margin:100px;
+                              background-color:#0a0;
+                              padding:20px;
+                              color:white">
+        Bla Bla Bla...
+    </div>
+
+    <div id="moppenCanvas">
+        <!-- Hoort leeg te zijn. -->
+    </div>
+
+    <div id="moppenGeneratorButton" onClick="MoppenGenerator()" style="background-color: pink; cursor: pointer; text-align: center; width: 150px; margin: auto;">
+        <h5 style="font-family: 'Open Sans'; padding: 5px 3px; border-radius: 2px;">Geef me een mop!</h5>
+    </div>
+
+    <script>
+        function VertelMop() {
+            alert("Sam en Moos lopen met z'n tweeën door de Kalverstraat");
+            alert("Vraagt Sam aan Moos:");
+            alert("'Mag ik in het midden lopen?'");
+        }
+
+        //document.getElementById("roodBlok").innerHTML = "Dag Allemaal!"
+
+        function MoppenGenerator() {
+            // Genereerd een random nummer tussen de 1 en 3.
+            MoppenGeneratorNummer = Math.floor(Math.random() * 5) + 1
+            console.log("Gegenereerd MoppenNummer: " + MoppenGeneratorNummer);
+
+            // Print een mop aan de hand van het gegenereerde nummer in MoppenGeneratorNummer of geeft een error.
+            if (MoppenGeneratorNummer == 1) {
+                console.log("Mop 1");
+                document.getElementById("moppenCanvas").innerHTML = "Dit is de eerste mop!"
+            } else if (MoppenGeneratorNummer == 2) {
+                console.log("Mop 2");
+                document.getElementById("moppenCanvas").innerHTML = "Dit is de tweede mop!"
+            } else if (MoppenGeneratorNummer == 3) {
+                document.getElementById("moppenCanvas").innerHTML = "Dit is de derde mop!"
+                console.log("Mop 3");
+            } else if (MoppenGeneratorNummer == 4) {
+                document.getElementById("moppenCanvas").innerHTML = "Dit is de vierde mop!"
+                console.log("Mop 4");
+            } else if (MoppenGeneratorNummer == 5) {
+                document.getElementById("moppenCanvas").innerHTML = "Dit is de vijfde mop!"
+                console.log("Mop 5");
+            } else {
+                console.log("ERROR 404: Mop not found.");
+            }
+        }
+    </script>
+</body>
+</html>
