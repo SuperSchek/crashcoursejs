@@ -16,19 +16,21 @@
         <a href="6.4.moppen_tappen.html"><h5>6.4. Moppen Tappen</h5></a>
         <a href="moppen_tappen.html"><h5>6.4. Moppen Tappen (Bonus Tapper)</h5></a>
         <a href="6.5.image_trickery.html"><h5>6.5, 6.6, 6.7. Image Trickery</h5></a>
-        <a href="8.4.biljart_score.html"><h5>8.4. Biljart Scores</h5></a>
     </div>
 
 </head>
 <body>
-    <a class="twitter-timeline" href="https://twitter.com/aaschekman_s4d" data-widget-id="694671034767777792">Tweets by @aaschekman_s4d</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    <textarea id="textArea1"></textarea> <br>
+    <textarea id="textArea2"></textarea> <br>
+    <textarea id="textArea3"></textarea> <br>
 
     <script>
-        function VertelMop() {
-            alert("Sam en Moos lopen met z'n tweeën door de Kalverstraat");
-            alert("Vraagt Sam aan Moos:");
-            alert("'Mag ik in het midden lopen?'");
+        function invoerNummer( id ) {
+            return document.getElementById( id ).value
+        }
+
+        function winnaar() {
+            return Math.max(invoerNummer("textArea1"), invoerNummer("textArea2"), invoerNummer("textArea3"));
         }
     </script>
 </body>

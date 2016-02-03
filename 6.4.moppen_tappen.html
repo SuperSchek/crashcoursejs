@@ -18,21 +18,28 @@
     </div>
 </head>
 <body>
-    <div id="roodBlok" style="margin:100px;
-                                 background-color:red;
-                                 padding:20px;
-                                 color:white">
+    <div id="roodBlok" onClick="greenMop()" style="margin:100px;
+                             background-color:red;
+                             padding:20px;
+                             color:white">
         Hello World!
     </div>
-    <div id="greenBlok" style="margin:100px;
-                                  background-color:#0a0;
-                                  padding:20px;
-                                  color:white">
+
+    <div id="greenBlok" onClick="roodMop()" style="margin:100px;
+                              background-color:#0a0;
+                              padding:20px;
+                              color:white">
         Bla Bla Bla...
     </div>
+
     <script>
-        alert(document.getElementById("roodBlok").innerHTML);
-        document.getElementById("roodBlok").innerHTML = "Dag Allemaal!"
+        function greenMop() {
+            document.getElementById("greenBlok").innerHTML = "Groene mop!"
+        }
+
+        function roodMop() {
+            document.getElementById("roodBlok").innerHTML = "Roode mop!"
+        }
     </script>
 </body>
 </html>

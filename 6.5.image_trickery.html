@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>S4D | Crash Course JavaScript</title>
+
+    <div style="text-align: center; font-family: 'Open Sans';">
+        <a href="index.html">
+            <h1 style="margin-bottom: -5px;">Scripting 4 Designers</h1>
+            <h2>Crash Course JavaScript</h2>
+        </a>
+    </div>
+
+    <div>
+        <a href="5.3.html_uitlezen.html"><h5>5.3. HTML Uitlezen</h5></a>
+        <a href="6.4.moppen_tappen.html"><h5>6.4. Moppen Tappen</h5></a>
+        <a href="moppen_tappen.html"><h5>6.4. Moppen Tappen (Bonus Tapper)</h5></a>
+        <a href="6.5.image_trickery.html"><h5>6.5, 6.6, 6.7. Image Trickery</h5></a>
+    </div>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h4>6.5. Aanpassen onClick</h4>
+        <img onClick="aanpasPlaatje()" id="coolPlaatje6.5" width="500px" src="http://www.dreameggsfc.com/wp-content/uploads/2015/12/the_hateful_eight.jpg">
+
+        <h4>6.6. Image Toggle onClick</h4>
+        <img onClick="plaatjesToggler()" id="coolPlaatje6.6" width="500px" src="http://www.dreameggsfc.com/wp-content/uploads/2015/12/the_hateful_eight.jpg">
+
+        <h4>6.6. Image Toggle Hover</h4>
+        <img onmouseover="src='https://i.ytimg.com/vi/U4RgZ50rqOo/maxresdefault.jpg'" onmouseout="src='http://www.dreameggsfc.com/wp-content/uploads/2015/12/the_hateful_eight.jpg'" id="coolPlaatje6.7" width="500px" src="http://www.dreameggsfc.com/wp-content/uploads/2015/12/the_hateful_eight.jpg">
+    </div>
+
+    <script>
+        function aanpasPlaatje() {
+            document.getElementById("coolPlaatje6.5").src = "https://i.ytimg.com/vi/U4RgZ50rqOo/maxresdefault.jpg"
+        }
+
+        function plaatjesToggler() {
+            if (document.getElementById("coolPlaatje6.6").src == "https://i.ytimg.com/vi/U4RgZ50rqOo/maxresdefault.jpg") {
+                document.getElementById("coolPlaatje6.6").src = "http://www.dreameggsfc.com/wp-content/uploads/2015/12/the_hateful_eight.jpg";
+            } else {
+                document.getElementById("coolPlaatje6.6").src = "https://i.ytimg.com/vi/U4RgZ50rqOo/maxresdefault.jpg";
+            }
+        }
+    </script>
+</body>
+</html>

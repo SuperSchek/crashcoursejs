@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="d3c1f8d8-529e-45e0-9df4-ccff118a0e8c" name="sanderschekman.com // S4D" url="http://sanderschekman.com/crashcoursejs">
-        <fileTransfer host="ftp.sanderschekman.com" port="21" rootFolder="/crashcoursejs" username="sanderschekman.com">
+        <fileTransfer host="ftp.sanderschekman.com" port="21" rootFolder="/crashcoursejs" password="dfe9dfd3dfc8dfcfdfd8dfc9dfc6dfc3dfdadfd9dff5df9b" username="sanderschekman.com">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>
