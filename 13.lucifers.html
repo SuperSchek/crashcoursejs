@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>S4D | Crash Course JavaScript</title>
+
+    <div style="text-align: center; font-family: 'Open Sans';">
+        <a href="index.html">
+            <h1 style="margin-bottom: -5px;">Scripting 4 Designers</h1>
+            <h2>Crash Course JavaScript</h2>
+        </a>
+    </div>
+
+    <div>
+        <a href="5.3.html_uitlezen.html"><h5>5.3. HTML Uitlezen</h5></a>
+        <a href="6.4.moppen_tappen.html"><h5>6.4. Moppen Tappen</h5></a>
+        <a href="moppen_tappen.html"><h5>6.4. Moppen Tappen (Bonus Tapper)</h5></a>
+        <a href="6.5.image_trickery.html"><h5>6.5, 6.6, 6.7. Image Trickery</h5></a>
+        <a href="8.4.biljart_score.html"><h5>8.4. Biljart Scores</h5></a>
+        <a href="13.lucifers.html"><h5>13. Lucifers; if en else</h5></a>
+    </div>
+
+</head>
+<body>
+    <h4>aantal lucifers:</h4>
+    <h1 id="aantalWeergave"></h1>
+    <hr>
+    <span>Speler 1: </span><input type="text" id="naam1">
+    <span>Speler 2:</span><input type="text" id="naam2">
+    <button id="spelerKnop" onclick="spelersInit();">Dit zijn de teams!</button>
+    <br>
+    <input type="text" id="pakAantalInvoer">
+    <button id="pakKnop" onclick="speelRonde();">
+        Pak!
+    </button>
+
+    <script>
+        function spelersInit() {
+            var speler1 = document.getElementById("speler1");
+            var speler2 = document.getElementById("speler2");
+        }
+
+        function leesPakAantal() {
+            var hetVeld =  document.getElementById("pakAantalInvoer")
+            // de Number-function zet tekst om in een getal (als dat kan)
+            var resultaat = Number( hetVeld.value )
+            // de functie isNaN controleert of z'n parameter een echt
+            // getal is, of Not-a-Number
+            console.log( "leesAantal: resultaat = ", resultaat,
+                    "isNaN(resultaat) = ", isNaN(resultaat)
+            )
+            return resultaat
+        }
+
+        var aantalLucifers = 21
+
+        function pakLucifers( aantal ) {
+            if (aantal > 3) {
+                alert("Hé daar! Je mag maximaal 3 lucifers pakken jij schavuit!");
+            } else if (aantal < 0) {
+                alert("Nee knul. Lucifers toevoegen is niet de bedoeling!");
+            } else if (aantal > aantalLucifers) {
+                aantalLucifers = 0;
+            } else {
+                aantalLucifers = aantalLucifers - aantal;
+            }
+        }
+
+        function displayLucifers(aantalLucifers) {
+            document.getElementById("aantalWeergave").innerHTML = aantalLucifers
+        }
+
+        displayLucifers(aantalLucifers);
+
+        document.getElementById("pakAantalInvoer").onkeyup = checkInhoud
+        function checkInhoud() {
+            var invoer = ( document.getElementById("pakAantalInvoer").value )
+            if (isNaN(invoer)) {
+                document.getElementById("pakKnop").disabled = true;
+            }
+        }
+
+        function speelRonde() {
+            if (isNaN(leesPakAantal())) {
+                alert("Voer a.u.b. een getal in. Geen gebrabbel!");
+            } else {
+                pakLucifers( leesPakAantal() );
+                displayLucifers(aantalLucifers);
+                document.getElementById("pakAantalInvoer").value = "";
+                if (aantalLucifers == 0) {
+                    alert("Je hebt gewonnen!");
+                    document.getElementById("pakKnop").disabled = true;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
