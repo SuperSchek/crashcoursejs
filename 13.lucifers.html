@@ -24,10 +24,17 @@
 <body>
     <h4>aantal lucifers:</h4>
     <h1 id="aantalWeergave"></h1>
+    <div class="lucifersGrafisch"></div>
     <hr>
-    <span>Speler 1: </span><input type="text" id="naam1">
-    <span>Speler 2:</span><input type="text" id="naam2">
+    <div>
+        <span style="display: block">Speler 1: </span><input type="text" id="speler1">
+        <span style="display: block">Speler 2:</span><input type="text" id="speler2">
+    </div>
+    <br>
     <button id="spelerKnop" onclick="spelersInit();">Dit zijn de teams!</button>
+    <br>
+    <h4 id="beurt">Voer deelnemers in!</h4>
+    <br>
     <br>
     <input type="text" id="pakAantalInvoer">
     <button id="pakKnop" onclick="speelRonde();">
@@ -35,9 +42,34 @@
     </button>
 
     <script>
+        var speler1
+        var speler2
+
+        var beurt
+
         function spelersInit() {
-            var speler1 = document.getElementById("speler1");
-            var speler2 = document.getElementById("speler2");
+            speler1 = document.getElementById("speler1").value;
+            speler2 = document.getElementById("speler2").value;
+
+            document.getElementById("spelerKnop").disabled = true;
+            document.getElementById("pakKnop").disabled = false;
+
+            beurt = speler2
+            aanDeBeurt();
+        }
+
+        function aanDeBeurt() {
+            if (beurt == speler1) {
+                console.log(speler2 + " is aan de beurt!");
+                document.getElementById("beurt").innerHTML = speler2 + " is aan de beurt!";
+                beurt = speler2
+            } else if (beurt == speler2) {
+                console.log(speler1 + " is aan de beurt!");
+                document.getElementById("beurt").innerHTML = speler1 + " is aan de beurt!";
+                beurt = speler1
+            } else {
+                console.log("Niemand aan de beurt? Dat lijkt me niet goed!");
+            }
         }
 
         function leesPakAantal() {
@@ -70,6 +102,17 @@
             document.getElementById("aantalWeergave").innerHTML = aantalLucifers
         }
 
+        function displayLucifersGrafisch(x) {
+            for ( i = x; i > 0; i-- ) {
+                document.getElementsByClassName("lucifersGrafisch").innerHTML = i + '<img style="height: 50px; width: auto; margin-right: 5px;" ' +
+                        'src="http://vignette2.wikia.nocookie.net/battlefordreamisland/images/0/0b/Old_Match.png/revision/latest?cb=20130819090348">';
+            }
+        }
+
+        function grafischAmount(aantalLucifersImgs) {
+            aantalLucifersImgs * displayLucifersGrafisch();
+        }
+
         displayLucifers(aantalLucifers);
 
         document.getElementById("pakAantalInvoer").onkeyup = checkInhoud
@@ -87,9 +130,17 @@
                 pakLucifers( leesPakAantal() );
                 displayLucifers(aantalLucifers);
                 document.getElementById("pakAantalInvoer").value = "";
+                aanDeBeurt();
                 if (aantalLucifers == 0) {
-                    alert("Je hebt gewonnen!");
+                    if (beurt == speler1) {
+                        document.getElementById("beurt").innerHTML = speler2 + " heeft gewonnen!";
+                        alert(speler2 + " is de winnaar!");
+                    } else {
+                        document.getElementById("beurt").innerHTML = speler1 + " heeft gewonnen!";
+                        alert(speler1 + " is de winnaar!");
+                    }
                     document.getElementById("pakKnop").disabled = true;
+                    document.getElementById("spelerKnop").disabled = false;
                 }
             }
         }
