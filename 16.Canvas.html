@@ -24,15 +24,28 @@
 
 </head>
 <body>
-    <a class="twitter-timeline" href="https://twitter.com/aaschekman_s4d" data-widget-id="694671034767777792">Tweets by @aaschekman_s4d</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    <canvas id="cooleCanvas" width="600px" height="600px" style="border:1px solid black;"></canvas>
 
     <script>
-        function VertelMop() {
-            alert("Sam en Moos lopen met z'n tweeën door de Kalverstraat");
-            alert("Vraagt Sam aan Moos:");
-            alert("'Mag ik in het midden lopen?'");
-        }
+        var hetCanvas = document.getElementById("cooleCanvas");
+        var context = hetCanvas.getContext("2d");
+
+        context.beginPath();
+        context.moveTo(100, 100);
+        context.lineTo(100, 200);
+        context.lineTo(200, 150);
+        context.lineTo(100, 100);
+        context.closePath();
+        context.fill();
+
+        context.beginPath();
+        context.moveTo(400, 400);
+        context.lineTo(400, 500);
+        context.lineTo(400, 450);
+        context.lineTo(400, 400);
+        context.closePath();
+
+        console.log(context);
     </script>
 </body>
 </html>
