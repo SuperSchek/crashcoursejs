@@ -1,62 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>S4D | Crash Course JavaScript</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>S4D | Crash Course JavaScript</title>
 
-    <div style="text-align: center; font-family: 'Open Sans';">
-        <a href="index.html">
-            <h1 style="margin-bottom: -5px;">Scripting 4 Designers</h1>
-            <h2>Crash Course JavaScript</h2>
-        </a>
-    </div>
+        <div style="text-align: center; font-family: 'Open Sans';">
+            <a href="index.html">
+                <h1 style="margin-bottom: -5px;">Scripting 4 Designers</h1>
+                <h2>Crash Course JavaScript</h2>
+            </a>
+        </div>
 
-    <div>
-        <a href="5.3.html_uitlezen.html"><h5>5.3. HTML Uitlezen</h5></a>
-        <a href="6.4.moppen_tappen.html"><h5>6.4. Moppen Tappen</h5></a>
-        <a href="moppen_tappen.html"><h5>6.4. Moppen Tappen (Bonus Tapper)</h5></a>
-        <a href="6.5.image_trickery.html"><h5>6.5, 6.6, 6.7. Image Trickery</h5></a>
-        <a href="8.4.biljart_score.html"><h5>8.4. Biljart Scores</h5></a>
-        <a href="13.lucifers.html"><h5>13. Lucifers; if en else</h5></a>
-        <a href="15.for_loops.html"><h5>15. For loops</h5></a>
-        <a href="16.Canvas.html"><h5>16. Canvas</h5></a>
-        <a href="17.arrays.html"><h5>17. Arrays</h5></a>
-    </div>
+        <div>
+            <a href="5.3.html_uitlezen.html"><h5>5.3. HTML Uitlezen</h5></a>
+            <a href="6.4.moppen_tappen.html"><h5>6.4. Moppen Tappen</h5></a>
+            <a href="moppen_tappen.html"><h5>6.4. Moppen Tappen (Bonus Tapper)</h5></a>
+            <a href="6.5.image_trickery.html"><h5>6.5, 6.6, 6.7. Image Trickery</h5></a>
+            <a href="8.4.biljart_score.html"><h5>8.4. Biljart Scores</h5></a>
+            <a href="13.lucifers.html"><h5>13. Lucifers; if en else</h5></a>
+            <a href="15.for_loops.html"><h5>15. For loops</h5></a>
+            <a href="16.Canvas.html"><h5>16. Canvas</h5></a>
+            <a href="17.arrays.html"><h5>17. Arrays</h5></a>
+        </div>
 
-</head>
-<body>
-    <canvas id="mijnCanvasje" width="600px" height="600px" style="border:1px solid black;"></canvas>
-
-    <script>
-        setInterval( nextFrame, 1000 ) // 1 keer per seconde
-
-        var frameTeller = 0;
-
-        function drawDisc( x,y,r ) {
-            theContext.beginPath();
-            theContext.arc(x,y,r,0,Math.PI*2,false);
-            theContext.closePath();
-            theContext.fill();
-        }
-
-        function startDrawing(canvasId) {
-            var canvasElement = document.getElementById(canvasId);
-            var drawingContext = canvasElement.getContext("2d");
-            return drawingContext;
-        }
-
-        var theContext = startDrawing("mijnCanvasje")
-
-        var x = 100;  // houdt de veranderende horizontale positie bij
-
-        function nextFrame() {
-            if ( x <= 400 ) {
-                x += 10;
-                theContext.clearRect(0,0,500,300); // wis het canvas
-                drawDisc( x, 100, 30 );
-                frameTeller++
+    </head>
+    <body>
+        <script>
+            function longestString( arr ) {
+                var voorlopigResultaat = arr[0]
+                for( var idx=0; idx < arr.length; idx++ ) {
+                    if( arr[idx.length] > voorlopigResultaat) {
+                        voorlopigResultaat = arr[idx.length]
+                    }
+                }
+                return voorlopigResultaat
             }
-        }
-    </script>
-</body>
+
+            var myMovies = ["Jackie Brown", "Back to the Future", "Oh Brother, Where Art Thou", "Wyatt Earp", "Seven Psychpaths", "Lawrence of Arabia"];
+            myMovies.push("War of the Worlds", "Metropolis");
+
+            console.log(myMovies);
+            console.log("Langste titel: " + longestString(myMovies))
+        </script>
+    </body>
 </html>
