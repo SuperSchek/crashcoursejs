@@ -40,23 +40,45 @@
             }
         }
 
-        var aantalRegels = prompt("Hoeveel regels wil je?");
-        var aantalPlaatjes = prompt("Hoeveel plaatjes  wil je per regel?");
+        /*var aantalRegels = prompt("Hoeveel regels wil je?");
+        var aantalPlaatjes = prompt("Hoeveel plaatjes  wil je per regel?");*/
 
 //        while (isNaN(aantalRegels)) {
 //            aantalRegels = prompt("Hoeveel regels wil je?");
 //        }
 
-        function test(a, b) {
-            for (a; a > 0; a--) {
-                for (b; b > 0; b--) {
-                    addPicture();
-                }
-                document.body.innerHTML += '<br>'
+//        function test(a, b) {
+//            for (a; a > 0; a--) {
+//                for (b; b > 0; b--) {
+//                    addPicture();
+//                }
+//                document.body.innerHTML += '<br>'
+//            }
+//        }
+//
+//        test(aantalRegels, aantalPlaatjes);
+
+        var antwoord
+        var rijen
+        var statusPrompt = 2;
+
+        if (statusPrompt == 2) {
+            while (isNaN(antwoord)) {
+                antwoord = prompt("Hoeveel plaatjes wil je?");
             }
+            statusPrompt -= 1;
         }
 
-        test(aantalRegels, aantalPlaatjes);
+        if (statusPrompt == 1) {
+            while (isNaN(rijen)) {
+                rijen = prompt("Hoeveel plaatjes per rij wil je?");
+            }
+            statusPrompt -= 1;
+        }
+
+        for (rijen; rijen > 0; rijen--) {
+
+        }
 
     </script>
 </body>
