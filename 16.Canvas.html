@@ -22,29 +22,40 @@
         <a href="16.Canvas.html"><h5>16. Canvas</h5></a>
         <a href="17.arrays.html"><h5>17. Arrays</h5></a>
     </div>
+
 </head>
 <body>
-    <div id="roodBlok" onClick="greenMop()" style="margin:100px;
-                             background-color:red;
-                             padding:20px;
-                             color:white">
-        Hello World!
-    </div>
-
-    <div id="greenBlok" onClick="roodMop()" style="margin:100px;
-                              background-color:#0a0;
-                              padding:20px;
-                              color:white">
-        Bla Bla Bla...
-    </div>
+    <canvas id="mijnCanvasje" width="600px" height="600px" style="border:1px solid black;"></canvas>
 
     <script>
-        function greenMop() {
-            document.getElementById("greenBlok").innerHTML = "Groene mop!"
+        setInterval( nextFrame, 1000 ) // 1 keer per seconde
+
+        var frameTeller = 0;
+
+        function drawDisc( x,y,r ) {
+            theContext.beginPath();
+            theContext.arc(x,y,r,0,Math.PI*2,false);
+            theContext.closePath();
+            theContext.fill();
         }
 
-        function roodMop() {
-            document.getElementById("roodBlok").innerHTML = "Roode mop!"
+        function startDrawing(canvasId) {
+            var canvasElement = document.getElementById(canvasId);
+            var drawingContext = canvasElement.getContext("2d");
+            return drawingContext;
+        }
+
+        var theContext = startDrawing("mijnCanvasje")
+
+        var x = 100;  // houdt de veranderende horizontale positie bij
+
+        function nextFrame() {
+            if ( x <= 400 ) {
+                x += 10;
+                theContext.clearRect(0,0,500,300); // wis het canvas
+                drawDisc( x, 100, 30 );
+                frameTeller++
+            }
         }
     </script>
 </body>
