@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>S4D | Crash Course JavaScript</title>
+
+        <div style="text-align: center; font-family: 'Open Sans';">
+            <a href="index.html">
+                <h1 style="margin-bottom: -5px;">Scripting 4 Designers</h1>
+                <h2>Crash Course JavaScript</h2>
+            </a>
+        </div>
+
+        <div>
+            <a href="5.3.html_uitlezen.html"><h5>5.3. HTML Uitlezen</h5></a>
+            <a href="6.4.moppen_tappen.html"><h5>6.4. Moppen Tappen</h5></a>
+            <a href="moppen_tappen.html"><h5>6.4. Moppen Tappen (Bonus Tapper)</h5></a>
+            <a href="6.5.image_trickery.html"><h5>6.5, 6.6, 6.7. Image Trickery</h5></a>
+            <a href="8.4.biljart_score.html"><h5>8.4. Biljart Scores</h5></a>
+            <a href="13.lucifers.html"><h5>13. Lucifers; if en else</h5></a>
+            <a href="15.for_loops.html"><h5>15. For loops</h5></a>
+            <a href="16.Canvas.html"><h5>16. Canvas</h5></a>
+            <a href="17.arrays.html"><h5>17. Arrays</h5></a>
+            <a href="18.json.html"><h5>18. JSON</h5></a>
+        </div>
+
+    </head>
+    <body>
+        <div id="mainContent">
+            <!-- laat hier de html voor de posting komen -->
+        </div>
+
+        <script>
+            var myBlogPosting = {
+                title: "Google launches underwater Street View",
+                author: "Xeni Jardin",
+                bodyText: "<p>Today Google Maps unveils a new Street View feature: " +
+                "underwater panoramic views of six special sea spots. " +
+                "The idea is to create a virtual map of the oceans, " +
+                "documenting the state of fragile ecosystems as they " +
+                "change over time, and sharing a vivid experience of " +
+                "part of our world that few humans get to see up close " +
+                "and in person, in real life.</p>" +
+                "<p>The ocean collection on Google Street View is now " +
+                "available at maps.google.com/ocean, and includes coral " +
+                "reefs and the creatures who live in them, in Australia, " +
+                "the Philippines and Hawaii.</p>",
+                ranking: 3,
+                link: "http://boingboing.net/2012/09/25/google-launches-underwater-str.html",
+                image: "https://i.imgur.com/kOL0CPf.gif"
+            }
+
+            function renderPost(postName) {
+                var postTitle = document.createElement('div');
+                postTitle.innerHTML = '<h2><a href="'+ postName.link +'">'+postName.title+'</a></h2><p>Ranking: ' + postName.ranking + '</p>';
+
+                var postImage = document.createElement('div');
+                postImage.innerHTML = '<img src="' + postName.image + '">'
+
+                var postContent = document.createElement('p');
+                postContent.innerHTML = postName.bodyText;
+
+                var postAuthor = document.createElement('span');
+                postAuthor.innerHTML = 'Author: ' + postName.author;
+
+                document.getElementById("mainContent").appendChild(postTitle);
+                document.getElementById("mainContent").appendChild(postImage);
+                document.getElementById("mainContent").appendChild(postContent);
+                document.getElementById("mainContent").appendChild(postAuthor);
+            }
+
+            renderPost(myBlogPosting);
+        </script>
+    </body>
+</html>
