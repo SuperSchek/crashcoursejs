@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>S4D | Crash Course JavaScript</title>
 
-        <div style="text-align: center; font-family: 'Open Sans';">
+        <!-- <div style="text-align: center; font-family: 'Open Sans';">
             <a href="index.html">
                 <h1 style="margin-bottom: -5px;">Scripting 4 Designers</h1>
                 <h2>Crash Course JavaScript</h2>
@@ -22,23 +22,62 @@
             <a href="16.Canvas.html"><h5>16. Canvas</h5></a>
             <a href="17.arrays.html"><h5>17. Arrays</h5></a>
             <a href="18.json.html"><h5>18. JSON</h5></a>
+        </div> -->
+        <div id="header">
+            <h1>S4D Blog</h1>
         </div>
 
     </head>
     <body>
         <style>
+            body {
+                background-color: lightgrey;
+                font-family: "Helvetica Neue";
+            }
+
+            #header {
+                background-color: dodgerblue;
+                width: 100%;
+                height: 75px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                color: white;
+                text-align: center;
+            }
+
+            #mainContent {
+                margin-top: 100px;
+            }
+
+            img {
+                width: 100%;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+
+            .post-image {
+                margin: -10px -15px 10px -15px;
+            }
+
+            .post-title {
+                text-decoration: none;
+                color: black;
+                font-weight: 900;
+                font-size: x-large;
+                transition: color 0.5s;
+            }
+
+            .post-title:hover {
+                color: grey;
+            }
+
+            .first-paragraph {
+                font-weight: 800;
+            }
+
             #nav a {
                 display: inline;
-            }
-
-            #mainContent div {
-                margin: 0 auto;
-                text-align: center;
-            }
-
-            #mainContent p {
-                margin: 0 auto;
-                text-align: center;
             }
         </style>
 
@@ -48,9 +87,9 @@
 
         <script>
             var myBlogPosting1 = {
-                title: "1) Google launches underwater Street View",
+                title: "Google launches underwater Street View",
                 author: "Xeni Jardin",
-                bodyText: "<p>Today Google Maps unveils a new Street View feature: " +
+                bodyText: "<p class='first-paragraph'>Today Google Maps unveils a new Street View feature: " +
                 "underwater panoramic views of six special sea spots. " +
                 "The idea is to create a virtual map of the oceans, " +
                 "documenting the state of fragile ecosystems as they " +
@@ -63,164 +102,197 @@
                 "the Philippines and Hawaii.</p>",
                 ranking: 3,
                 link: "http://boingboing.net/2012/09/25/google-launches-underwater-str.html",
-                image: "https://i.imgur.com/kOL0CPf.gif"
+                image: "http://i1.wp.com/media.boingboing.net/wp-content/uploads/2012/09/catlinsv.jpg?w=600"
             }
 
             var myBlogPosting2 = {
-                title: "2) Google launches underwater Street View",
-                author: "Xeni Jardin",
-                bodyText: "<p>Today Google Maps unveils a new Street View feature: " +
-                "underwater panoramic views of six special sea spots. " +
-                "The idea is to create a virtual map of the oceans, " +
-                "documenting the state of fragile ecosystems as they " +
-                "change over time, and sharing a vivid experience of " +
-                "part of our world that few humans get to see up close " +
-                "and in person, in real life.</p>" +
-                "<p>The ocean collection on Google Street View is now " +
-                "available at maps.google.com/ocean, and includes coral " +
-                "reefs and the creatures who live in them, in Australia, " +
-                "the Philippines and Hawaii.</p>",
+                title: "Opera brengt ontwikkelaarsversie van browser uit met ingebouwde adblocker",
+                author: "Sander van Voorst",
+                bodyText: "<p class='first-paragraph'>Opera heeft een ontwikkelaarsversie van zijn" +
+                " desktop-browser uitgebracht waarbij het niet meer nodig is " +
+                "om een extensie te installeren om advertenties te blokkeren. " +
+                "Deze functie is standaard in de browser aanwezig en kan door " +
+                "gebruikers in- of uitgeschakeld worden.</p>" +
+                "<p>Volgens het Opera-team is deze manier van adblocking veel sneller " +
+                "dan extensies, omdat advertenties op web engine-niveau geblokkeerd worden als " +
+                "een url voor het eerst wordt opgevraagd. Ook de veiligheid van het browsen zou " +
+                "erdoor verbeterd worden. Het Noorse bedrijf claimt het eerste te zijn dat een " +
+                "grote browser voorziet van een ingebouwde adblocker. Daarnaast zou deze manier " +
+                "gemiddeld 45 procent sneller zijn dan bij gebruik van Google Chrome met AdBlock Plus. " +
+                "Advertenties en trackers worden geblokkeerd aan de hand van de lijsten van EasyList.</p>" +
+                "<p>De functie is standaard uitgeschakeld en vraagt gebruikers op een pagina met advertenties" +
+                " of deze geblokkeerd moeten worden. Is de blocker eenmaal ingeschakeld dan kan deze op " +
+                "individuele pagina's uitgeschakeld worden, waarna de browser deze toevoegt aan de lijst " +
+                "met uitzonderingen. Ook is het mogelijk om een snelheidstest op een pagina uit te voeren. " +
+                "Daarmee laadt de browser de pagina eerst met advertenties en daarna zonder, waarna de " +
+                "resultaten naast elkaar worden vergeleken.</p>" +
+                "<p>Een woordvoerder van Opera laat tegenover Reuters weten dat het bedrijf geen " +
+                "egenstrijdigheid ziet in het feit dat het een standaard adblocking-functie aan zijn " +
+                "browser toevoegt, terwijl het zelf voor een groot deel afhankelijk is van advertenties. " +
+                "Ook zou de technologie ervoor zorgen dat advertentiebedrijven naar de wensen van " +
+                "consumenten gaan luisteren.</p>" +
+                "<p>De nieuwe versie van de browser is voornamelijk gericht op ontwikkelaars en " +
+                "'early adopters'. Het bedrijf is ook van plan om de functie later breed voor computers" +
+                " en telefoons beschikbaar te maken. Volgens Reuters is de Opera-browser op het moment " +
+                "de op vier na grootste met 60 miljoen actieve maandelijkse gebruikers. De nieuwe versie " +
+                "van de browser is beschikbaar via de ontwikkelaarspagina.</p>",
                 ranking: 3,
-                link: "http://boingboing.net/2012/09/25/google-launches-underwater-str.html",
+                link: "http://tweakers.net/nieuws/109173/opera-brengt-ontwikkelaarsversie-van-browser-uit-met-ingebouwde-adblocker.html",
+                image: "http://ic.tweakimg.net/ext/i/imagenormal/2001014305.png"
             }
 
             var myBlogPosting3 = {
-                title: "3) Google launches underwater Street View",
-                author: "Xeni Jardin",
-                bodyText: "<p>Today Google Maps unveils a new Street View feature: " +
-                "underwater panoramic views of six special sea spots. " +
-                "The idea is to create a virtual map of the oceans, " +
-                "documenting the state of fragile ecosystems as they " +
-                "change over time, and sharing a vivid experience of " +
-                "part of our world that few humans get to see up close " +
-                "and in person, in real life.</p>" +
-                "<p>The ocean collection on Google Street View is now " +
-                "available at maps.google.com/ocean, and includes coral " +
-                "reefs and the creatures who live in them, in Australia, " +
-                "the Philippines and Hawaii.</p>",
+                title: "Willem-Alexander en Máxima zien de twee Rembrandts in Louvre",
+                author: "N. Os",
+                bodyText: "<p class='first-paragraph'>In het Louvre in Parijs hebben" +
+                " koning Willem-Alexander en koningin Máxima de portretten van Maerten" +
+                " Soolmans en Oopjen Coppit van Rembrandt bezichtigd. Vanaf nu zijn de " +
+                "huwelijksportretten ook voor het publiek te zien.</p>" +
+                "<p>De schilderijen werden vorig jaar door Frankrijk en Nederland samen " +
+                "aangeschaft. Ze zullen afwisselend te zien zijn in het Rijksmuseum in Amsterdam" +
+                " en het Louvre. Vanaf nu drie maanden in Parijs, daarna drie maanden in Amsterdam." +
+                " Vervolgens worden ze in Nederland gerestaureerd.</p>" +
+                "<p>De Rembrandts waren eigendom van de bankiersfamilie Rothschild. Aanvankelijk" +
+                " wilde alleen Nederland de werken hebben, maar later bleek ook Frankrijk geïnteresseerd." +
+                " Overeengekomen werd dat Nederland en Frankrijk elk 80 miljoen euro betaalden en dat de " +
+                "schilderijen in beide landen tentoongesteld worden.</p>" +
+                "<p>Het koningspaar is in Frankrijk voor een tweedaags staatsbezoek. Vanochtend werd het " +
+                "paar ontvangen met een ceremonie bij de Arc de Triomphe. Daar legden ze een krans bij het " +
+                "Graf van de onbekende soldaat. Vanavond heeft het koningspaar een staatsbanket op het presidentiële paleis. </p>" +
+                "<p>Morgen staat een gesprek met de burgemeester van Parijs op het programma en is er ook aandacht voor de handelsbetrekkingen" +
+                " tussen beide landen. Zo zal het paar een innovatiebeurs bezoeken met hightech-producten die door Nederland en Frankrijk " +
+                "samen zijn ontwikkeld.</p>",
                 ranking: 3,
-                link: "http://boingboing.net/2012/09/25/google-launches-underwater-str.html",
-                image: "https://i.imgur.com/kOL0CPf.gif"
+                link: "http://nos.nl/artikel/2091838-willem-alexander-en-maxima-zien-de-twee-rembrandts-in-louvre.html",
+                image: "http://nos.nl/data/image/2016/03/10/263486/864x486.jpg"
             }
 
             var myBlogPosting4 = {
-                title: "4) Google launches underwater Street View",
-                author: "Xeni Jardin",
-                bodyText: "<p>Today Google Maps unveils a new Street View feature: " +
-                "underwater panoramic views of six special sea spots. " +
-                "The idea is to create a virtual map of the oceans, " +
-                "documenting the state of fragile ecosystems as they " +
-                "change over time, and sharing a vivid experience of " +
-                "part of our world that few humans get to see up close " +
-                "and in person, in real life.</p>" +
-                "<p>The ocean collection on Google Street View is now " +
-                "available at maps.google.com/ocean, and includes coral " +
-                "reefs and the creatures who live in them, in Australia, " +
-                "the Philippines and Hawaii.</p>",
+                title: "Patiënten en artsen vinden opname gesprek goed idee",
+                author: "N. Os",
+                bodyText: "<p class='first-paragraph'>Patiënten en artsen vinden het een goed idee " +
+                "als patiënten die dat willen het gesprek met hun arts opnemen." +
+                " Zowel de Patiëntenfederatie als de artsenvereniging KNMG reageert" +
+                " positief op het plan van minister Schippers. </p>" +
+                "<p>Minister Schippers schrijft in een brief aan de Tweede Kamer dat" +
+                " een opname van het gesprek patiënten kan helpen hun gedachten op een " +
+                "rij te zetten en beslissingen te nemen. Patiënten vergeten volgens haar " +
+                "vaak een groot deel van de informatie die een arts in het gesprek geeft.</p>" +
+                "Beide partijen wijzen op het belang om de opnames niet stiekem te maken. Dianda " +
+                "Veldman van de Patiëntenfederatie: 'Dat is wel zo netjes. En het is ook beter voor de verstandhouding.'" +
+                "<p>Een gesprek opnemen zonder de arts in te lichten is niet verboden, zegt de KNMG, maar het kan de " +
+                "relatie wel onder druk zetten. De KNMG ziet dat vooral gebeuren bij verzekerings- en bedrijfsartsen en " +
+                "in de jeugdzorg. 'In die situaties is er meer onenigheid tussen de arts en de patiënten. En dat zijn " +
+                "artsen die de patiënt niet zelf uitkiest.'</p>" +
+                "<p>De Patiëntenfederatie is blij dat de minister deze stap zet. 'Maar het belangrijkste is natuurlijk dat" +
+                " arts en patiënt samen beslissen wat er kan en moet gebeuren.' Veldman adviseert daarbij gebruik te maken van" +
+                " drie standaardvragen: wat zijn mijn mogelijkheden, wat zijn de voor- en nadelen en wat betekent dat in mijn situatie.</p>",
                 ranking: 3,
-                link: "http://boingboing.net/2012/09/25/google-launches-underwater-str.html",
+                link: "http://nos.nl/artikel/2091835-patienten-en-artsen-vinden-opname-gesprek-goed-idee.html",
+                image: "http://nos.nl/data/image/2016/03/10/263469/864x486.jpg"
             }
 
             var myBlogPosting5 = {
-                title: "5) Google launches underwater Street View",
-                author: "Xeni Jardin",
-                bodyText: "<p>Today Google Maps unveils a new Street View feature: " +
-                "underwater panoramic views of six special sea spots. " +
-                "The idea is to create a virtual map of the oceans, " +
-                "documenting the state of fragile ecosystems as they " +
-                "change over time, and sharing a vivid experience of " +
-                "part of our world that few humans get to see up close " +
-                "and in person, in real life.</p>" +
-                "<p>The ocean collection on Google Street View is now " +
-                "available at maps.google.com/ocean, and includes coral " +
-                "reefs and the creatures who live in them, in Australia, " +
-                "the Philippines and Hawaii.</p>",
+                title: "AIVD bestudeert lijsten IS-leden nog",
+                author: "N. Os",
+                bodyText: "<p class='first-paragraph'>De lijsten met gegevens van IS-strijders die " +
+                "via de Britse zender Sky News bekend zijn geworden, worden nog" +
+                " bestudeerd door de AIVD. 'We hebben  nog niet kunnen vaststellen" +
+                " hoe betrouwbaar de gegevens zijn', zegt een woordvoerder.</p>" +
+                "<p>De gegevens van tienduizenden jihadisten zijn via een gedeserteerde " +
+                "strijder in handen gekomen van Sky News. " +
+                "<a href='http://nos.nl/artikel/2091766-persoonsgegevens-22-000-is-strijders-uitgelekt.html'>Op de 22.000 kaarten</a> " +
+                "beantwoorden aspirant-leden van IS 23 vragen. Ook hun naam, eventuele" +
+                "strijdnaam, opleiding en vroegere adres zijn vastgelegd.</p>" +
+                "<p>Volgens de AIVD is bekend dat IS op deze manier de strijders registreert." +
+                " Al-Qaida deed iets vergelijkbaars: 9 jaar geleden werden de gegevens van 700 " +
+                "al-Qaida-strijders gevonden. 'Die gegevens zijn later bekend geworden als de " +
+                "Sinjar-records', zegt een woordvoerder.</p>" +
+                "<p>De NCTV laat weten ook nog te onderzoeken wat de bestanden precies behelzen.</p>",
                 ranking: 3,
-                link: "http://boingboing.net/2012/09/25/google-launches-underwater-str.html",
-                image: "https://i.imgur.com/kOL0CPf.gif"
+                link: "http://nos.nl/artikel/2091849-aivd-bestudeert-lijsten-is-leden-nog.html",
+                image: "http://nos.nl/data/image/2016/03/10/263482/864x486.jpg"
             }
 
             var myBlogPosting6 = {
-                title: "6) Google launches underwater Street View",
-                author: "Xeni Jardin",
-                bodyText: "<p>Today Google Maps unveils a new Street View feature: " +
-                "underwater panoramic views of six special sea spots. " +
-                "The idea is to create a virtual map of the oceans, " +
-                "documenting the state of fragile ecosystems as they " +
-                "change over time, and sharing a vivid experience of " +
-                "part of our world that few humans get to see up close " +
-                "and in person, in real life.</p>" +
-                "<p>The ocean collection on Google Street View is now " +
-                "available at maps.google.com/ocean, and includes coral " +
-                "reefs and the creatures who live in them, in Australia, " +
-                "the Philippines and Hawaii.</p>",
+                title: "'Europese Commissie plant klacht in mededingingszaak Android'",
+                author: "Sander van Voorst",
+                bodyText: "<p class='first-paragraph'>Bloomberg laat weten dat er tekenen zijn dat de " +
+                "Europese Commissie plant een 'mededeling van punten van bezwaar' " +
+                "aan Google te sturen. Aanleiding zou het feit zijn dat Google apps " +
+                "als Maps en Gmail bundelt met het besturingssysteem, waardoor " +
+                "concurrenten benadeeld worden.</p>" +
+                "<p>De informatie is afkomstig van drie personen, die bekend " +
+                "zijn met het lopende onderzoek naar Android, zo <a href='http://www.bloomberg.com/news/articles/2016-03-09/eu-s-android-probe-said-to-advance-as-rivals-censor-evidence-ill3uqi8'>meldt</a> Bloomberg. " +
+                "De Europese Commissie zou bedrijven, die documenten in het kader " +
+                "van het lopende onderzoek naar Android hebben opgestuurd, gevraagd " +
+                "hebben om deze op grote schaal te ontdoen van vertrouwelijke informatie. " +
+                "De schaal waarop dit gebeurt zou een teken zijn dat de Commissie zich opmaakt " +
+                "voor het uitbrengen van een mededeling van punten van bezwaar, die vergelijkbaar " +
+                "is met een dagvaarding.</p>" +
+                "<p>De informatie wordt uit de documenten verwijderd, omdat een bedrijf dat een " +
+                "dergelijke mededeling ontvangt volgens de " +
+                "<a href='http://ec.europa.eu/competition/publications/factsheets/antitrust_procedures_101_en.pdf'>procedure</a> " +
+                "de mogelijkheid heeft om daarop" +
+                " te reageren en het dossier in te zien. In het andere " +
+                "<a href='http://tweakers.net/nieuws/102506/eu-beschuldigt-google-van-misbruik-machtspositie-met-prijsvergelijken.html'>onderzoek</a> " +
+                "naar Googles " +
+                "machtspositie bij prijsvergelijkingen was een vergelijkbare gang van zaken te observeren." +
+                " Na het horen van Google en de andere betrokken partijen zal de Commissie een ontwerpbeschikking " +
+                "uitvaardigen, die door de nationale toezichthouders wordt gecontroleerd. Een dergelijke beschikking " +
+                "kan een verbod in combinatie met een boete bevatten.</p>" +
+                "<p>In het <a href='http://tweakers.net/nieuws/102505/eu-start-formeel-onderzoek-naar-mogelijk-machtsmisbruik-google-met-android.html'>onderzoek</a>" +
+                " naar Android, dat in april 2015 startte, gaat het de Commissie voornamelijk om de vraag" +
+                " of Google de concurrentie belemmert door aan de makers van smartphones en tablets" +
+                " exclusiviteit te eisen bij installatie van zijn mobiele apps. Daarnaast wordt onderzocht" +
+                " of Google fabrikanten ervan heeft weerhouden eigen versies, oftwel forks, van het " +
+                "Android-besturingssysteem te ontwikkelen. Onder andere Microsoft en Nokia dienden klachten " +
+                "bij de Europese Commissie in over deze praktijken.</p>",
                 ranking: 3,
-                link: "http://boingboing.net/2012/09/25/google-launches-underwater-str.html",
-            }
-
-            var myBlogPosting7 = {
-                title: "7) Google launches underwater Street View",
-                author: "Xeni Jardin",
-                bodyText: "<p>Today Google Maps unveils a new Street View feature: " +
-                "underwater panoramic views of six special sea spots. " +
-                "The idea is to create a virtual map of the oceans, " +
-                "documenting the state of fragile ecosystems as they " +
-                "change over time, and sharing a vivid experience of " +
-                "part of our world that few humans get to see up close " +
-                "and in person, in real life.</p>" +
-                "<p>The ocean collection on Google Street View is now " +
-                "available at maps.google.com/ocean, and includes coral " +
-                "reefs and the creatures who live in them, in Australia, " +
-                "the Philippines and Hawaii.</p>",
-                ranking: 3,
-                link: "http://boingboing.net/2012/09/25/google-launches-underwater-str.html",
-            }
-
-            var myBlogPosting8 = {
-                title: "8) Google launches underwater Street View",
-                author: "Xeni Jardin",
-                bodyText: "<p>Today Google Maps unveils a new Street View feature: " +
-                "underwater panoramic views of six special sea spots. " +
-                "The idea is to create a virtual map of the oceans, " +
-                "documenting the state of fragile ecosystems as they " +
-                "change over time, and sharing a vivid experience of " +
-                "part of our world that few humans get to see up close " +
-                "and in person, in real life.</p>" +
-                "<p>The ocean collection on Google Street View is now " +
-                "available at maps.google.com/ocean, and includes coral " +
-                "reefs and the creatures who live in them, in Australia, " +
-                "the Philippines and Hawaii.</p>",
-                ranking: 3,
-                link: "http://boingboing.net/2012/09/25/google-launches-underwater-str.html",
-                image: "https://i.imgur.com/kOL0CPf.gif"
+                link: "http://tweakers.net/nieuws/109179/europese-commissie-plant-klacht-in-mededingingszaak-android.html",
+                video: "<iframe width='100%' height='315' src='https://www.youtube.com/embed/pJfTfsXFbLk?rel=0&amp;controls=0&amp;showinfo=0' frameborder='0' allowfullscreen></iframe>"
             }
 
             //Array of posts
-            var postsArray = [myBlogPosting1, myBlogPosting2, myBlogPosting3, myBlogPosting4, myBlogPosting5, myBlogPosting6, myBlogPosting7, myBlogPosting8]
+            var postsArray = [myBlogPosting1, myBlogPosting2, myBlogPosting3, myBlogPosting4, myBlogPosting5, myBlogPosting6]
 
             //Function to render the blogPost object passed to the function.
             function renderPost(postName) {
+                var postWrapper = document.createElement('div');
+                postWrapper.id = postName.title;
+
+                postWrapper.style.cssText = "background-color: #FFF; max-width: 45%; margin: 0 auto; " +
+                        "border-radius: 5px; padding: 10px 15px; margin-bottom: 25px; box-shadow: 2px 2px 10px #d7d7d7;";
+
+                document.getElementById("mainContent").appendChild(postWrapper);
+
                 var postTitle = document.createElement('div');
-                postTitle.innerHTML = '<h2><a href="'+ postName.link +'">'+postName.title+'</a></h2><p>Ranking: ' + postName.ranking + '</p>';
+                postTitle.innerHTML = '<a class="post-title" href="' + postName.link +'">' + postName.title + '</a>';
 
                 var postImage = document.createElement('div');
-                postImage.innerHTML = '<img src="' + postName.image + '">'
+                postImage.className = "post-image";
+                postImage.innerHTML = '<img src="' + postName.image + '">';
+
+                var postVideo = document.createElement('div');
+                postVideo.className = "post-image";
+                postVideo.innerHTML = postName.video;
 
                 var postContent = document.createElement('p');
                 postContent.innerHTML = postName.bodyText;
 
                 var postAuthor = document.createElement('span');
-                postAuthor.innerHTML = 'Author: ' + postName.author;
-
-                document.getElementById("mainContent").appendChild(postTitle);
+                postAuthor.innerHTML = 'Author: ' + postName.author + '<p>Ranking: ' + postName.ranking + '</p>';
 
                 //Check if postName object contains an image key. If so; render it.
                 if ("image" in postName) {
-                    document.getElementById("mainContent").appendChild(postImage);
+                    document.getElementById(postWrapper.id).appendChild(postImage);
+                } else if ("video" in postName) {
+                    document.getElementById(postWrapper.id).appendChild(postVideo);
                 }
 
-                document.getElementById("mainContent").appendChild(postContent);
-                document.getElementById("mainContent").appendChild(postAuthor);
+                document.getElementById(postWrapper.id).appendChild(postTitle);
+                document.getElementById(postWrapper.id).appendChild(postContent);
+                document.getElementById(postWrapper.id).appendChild(postAuthor);
             }
 
             //Loop over array of posts and render them.
