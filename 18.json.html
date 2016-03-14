@@ -50,6 +50,41 @@
                 margin-top: 100px;
             }
 
+            #mainContent span {
+                color: grey;
+                font-size: small;
+            }
+
+            #featured {
+                right: 10%;
+                width: 15%;
+                background-color: #fff;
+                position: fixed;
+                top: 100px;
+                border-radius: 5px;
+                padding-bottom: 10px;
+            }
+
+            #featured h2 {
+                padding-left: 10px;
+                margin-top: 10px;
+                color: #333;
+            }
+
+            #featured div {
+                margin-top: 10px;
+            }
+            
+            #featured div a {
+                text-decoration: none;
+                color: #333;
+                transition: color ease-in-out 0.15s;
+            }
+            
+            #featured div a:hover {
+                color: grey;
+            }
+
             img {
                 width: 100%;
                 border-top-left-radius: 5px;
@@ -65,7 +100,7 @@
                 color: black;
                 font-weight: 900;
                 font-size: x-large;
-                transition: color 0.5s;
+                transition: color ease-in-out 0.15s;
             }
 
             .post-title:hover {
@@ -85,6 +120,10 @@
             <!-- laat hier de html voor de posting komen -->
         </div>
 
+        <div id="featured">
+            <h2>FEATURED POSTS</h2>
+        </div>
+
         <script>
             var myBlogPosting1 = {
                 title: "Google launches underwater Street View",
@@ -100,9 +139,15 @@
                 "available at maps.google.com/ocean, and includes coral " +
                 "reefs and the creatures who live in them, in Australia, " +
                 "the Philippines and Hawaii.</p>",
-                ranking: 3,
+                ranking: 5,
                 link: "http://boingboing.net/2012/09/25/google-launches-underwater-str.html",
-                image: "http://i1.wp.com/media.boingboing.net/wp-content/uploads/2012/09/catlinsv.jpg?w=600"
+                image: "http://i1.wp.com/media.boingboing.net/wp-content/uploads/2012/09/catlinsv.jpg?w=600",
+                render: function() {
+                    renderPost(this);
+                },
+                featured: function() {
+                    rankingsChecker(this);
+                }
             }
 
             var myBlogPosting2 = {
@@ -136,9 +181,15 @@
                 " en telefoons beschikbaar te maken. Volgens Reuters is de Opera-browser op het moment " +
                 "de op vier na grootste met 60 miljoen actieve maandelijkse gebruikers. De nieuwe versie " +
                 "van de browser is beschikbaar via de ontwikkelaarspagina.</p>",
-                ranking: 3,
+                ranking: 2,
                 link: "http://tweakers.net/nieuws/109173/opera-brengt-ontwikkelaarsversie-van-browser-uit-met-ingebouwde-adblocker.html",
-                image: "http://ic.tweakimg.net/ext/i/imagenormal/2001014305.png"
+                image: "http://ic.tweakimg.net/ext/i/imagenormal/2001014305.png",
+                render: function() {
+                    renderPost(this);
+                },
+                featured: function() {
+                    rankingsChecker(this);
+                }
             }
 
             var myBlogPosting3 = {
@@ -162,9 +213,15 @@
                 "<p>Morgen staat een gesprek met de burgemeester van Parijs op het programma en is er ook aandacht voor de handelsbetrekkingen" +
                 " tussen beide landen. Zo zal het paar een innovatiebeurs bezoeken met hightech-producten die door Nederland en Frankrijk " +
                 "samen zijn ontwikkeld.</p>",
-                ranking: 3,
+                ranking: 2,
                 link: "http://nos.nl/artikel/2091838-willem-alexander-en-maxima-zien-de-twee-rembrandts-in-louvre.html",
-                image: "http://nos.nl/data/image/2016/03/10/263486/864x486.jpg"
+                image: "http://nos.nl/data/image/2016/03/10/263486/864x486.jpg",
+                render: function() {
+                    renderPost(this);
+                },
+                featured: function() {
+                    rankingsChecker(this);
+                }
             }
 
             var myBlogPosting4 = {
@@ -187,9 +244,15 @@
                 "<p>De Patiëntenfederatie is blij dat de minister deze stap zet. 'Maar het belangrijkste is natuurlijk dat" +
                 " arts en patiënt samen beslissen wat er kan en moet gebeuren.' Veldman adviseert daarbij gebruik te maken van" +
                 " drie standaardvragen: wat zijn mijn mogelijkheden, wat zijn de voor- en nadelen en wat betekent dat in mijn situatie.</p>",
-                ranking: 3,
+                ranking: 4,
                 link: "http://nos.nl/artikel/2091835-patienten-en-artsen-vinden-opname-gesprek-goed-idee.html",
-                image: "http://nos.nl/data/image/2016/03/10/263469/864x486.jpg"
+                image: "http://nos.nl/data/image/2016/03/10/263469/864x486.jpg",
+                render: function() {
+                    renderPost(this);
+                },
+                featured: function() {
+                    rankingsChecker(this);
+                }
             }
 
             var myBlogPosting5 = {
@@ -209,9 +272,15 @@
                 "al-Qaida-strijders gevonden. 'Die gegevens zijn later bekend geworden als de " +
                 "Sinjar-records', zegt een woordvoerder.</p>" +
                 "<p>De NCTV laat weten ook nog te onderzoeken wat de bestanden precies behelzen.</p>",
-                ranking: 3,
+                ranking: 4,
                 link: "http://nos.nl/artikel/2091849-aivd-bestudeert-lijsten-is-leden-nog.html",
-                image: "http://nos.nl/data/image/2016/03/10/263482/864x486.jpg"
+                image: "http://nos.nl/data/image/2016/03/10/263482/864x486.jpg",
+                render: function() {
+                    renderPost(this);
+                },
+                featured: function() {
+                    rankingsChecker(this);
+                }
             }
 
             var myBlogPosting6 = {
@@ -248,9 +317,15 @@
                 " of Google fabrikanten ervan heeft weerhouden eigen versies, oftwel forks, van het " +
                 "Android-besturingssysteem te ontwikkelen. Onder andere Microsoft en Nokia dienden klachten " +
                 "bij de Europese Commissie in over deze praktijken.</p>",
-                ranking: 3,
+                ranking: 1,
                 link: "http://tweakers.net/nieuws/109179/europese-commissie-plant-klacht-in-mededingingszaak-android.html",
-                video: "<iframe width='100%' height='315' src='https://www.youtube.com/embed/pJfTfsXFbLk?rel=0&amp;controls=0&amp;showinfo=0' frameborder='0' allowfullscreen></iframe>"
+                video: "<iframe width='100%' height='315' src='https://www.youtube.com/embed/pJfTfsXFbLk?rel=0&amp;controls=0&amp;showinfo=0' frameborder='0' allowfullscreen></iframe>",
+                render: function() {
+                    renderPost(this);
+                },
+                featured: function() {
+                    rankingsChecker(this);
+                }
             }
 
             //Array of posts
@@ -281,7 +356,7 @@
                 postContent.innerHTML = postName.bodyText;
 
                 var postAuthor = document.createElement('span');
-                postAuthor.innerHTML = 'Author: ' + postName.author + '<p>Ranking: ' + postName.ranking + '</p>';
+                postAuthor.innerHTML = 'Author: ' + postName.author + ' | Ranking: ' + postName.ranking;
 
                 //Check if postName object contains an image key. If so; render it.
                 if ("image" in postName) {
@@ -295,9 +370,29 @@
                 document.getElementById(postWrapper.id).appendChild(postAuthor);
             }
 
+            function rankingsChecker(postName) {
+                var featuredPostWrapper = document.createElement('div');
+                featuredPostWrapper.id = postName.title;
+
+                featuredPostWrapper.style.cssText = "padding: 0 10px;";
+
+                document.getElementById("featured").appendChild(featuredPostWrapper);
+
+                if (postName.ranking >= 3 && postName.ranking != 5) {
+                    console.log("Normaal Uitgelicht: " + postName.title);
+                    featuredPostWrapper.innerHTML = "<a href='"+ postName.link + "'>" + postName.title + "</a>";
+                } else if (postName.ranking == 5) {
+                    console.log("BOLD Uitgelicht: " + postName.title);
+                    featuredPostWrapper.innerHTML = "<b><a href='" + postName.link + "'>" + postName.title + "</a></b>";
+                } else {
+                    postName.ranking = null;
+                }
+            }
+
             //Loop over array of posts and render them.
             for (var i = 0; i < postsArray.length; i++) {
-                renderPost(postsArray[i]);
+                postsArray[i].render();
+                postsArray[i].featured();
             }
         </script>
     </body>
