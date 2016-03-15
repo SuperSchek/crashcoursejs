@@ -114,6 +114,15 @@
             #nav a {
                 display: inline;
             }
+
+            .comment-bubble {
+                border: 5px solid white;
+                padding: 2px 4px;
+                display: inline-block;
+                background-color: white;
+                margin: -10px 0 -5px 0;
+                border-radius: 5px;
+            }
         </style>
 
         <div id="mainContent">
@@ -146,12 +155,18 @@
                     {
                         commentText: "Ik vind dit maar een gaar artikel!",
                         commentAuthor: "Squad Cobbler",
-                        ranking: 4
+                        ranking: 4,
+                        toHTML: function() {
+                            return '<p class="comment-bubble">' + this.commentText + '</p>';
+                        }
                     },
                     {
                         commentText: "Wat een verschrikkelijk slecht geschreven artikel!",
                         commentAuthor: "N. Ekbaard",
-                        ranking: 3
+                        ranking: 3,
+                        toHTML: function() {
+                            return '<p class="comment-bubble">' + this.commentText + '</p>';
+                        }
                     }
                 ],
                 render: function() {
@@ -196,6 +211,24 @@
                 ranking: 2,
                 link: "http://tweakers.net/nieuws/109173/opera-brengt-ontwikkelaarsversie-van-browser-uit-met-ingebouwde-adblocker.html",
                 image: "http://ic.tweakimg.net/ext/i/imagenormal/2001014305.png",
+                comments: [
+                    {
+                        commentText: "Ik vind dit maar een gaar artikel!",
+                        commentAuthor: "Squad Cobbler",
+                        ranking: 4,
+                        toHTML: function() {
+                            return '<p class="comment-bubble">' + this.commentText + '</p>';
+                        }
+                    },
+                    {
+                        commentText: "Wat een verschrikkelijk slecht geschreven artikel!",
+                        commentAuthor: "N. Ekbaard",
+                        ranking: 3,
+                        toHTML: function() {
+                            return '<p class="comment-bubble">' + this.commentText + '</p>';
+                        }
+                    }
+                ],
                 render: function() {
                     renderPost(this);
                 },
@@ -228,6 +261,24 @@
                 ranking: 2,
                 link: "http://nos.nl/artikel/2091838-willem-alexander-en-maxima-zien-de-twee-rembrandts-in-louvre.html",
                 image: "http://nos.nl/data/image/2016/03/10/263486/864x486.jpg",
+                comments: [
+                    {
+                        commentText: "Ik vind dit maar een gaar artikel!",
+                        commentAuthor: "Squad Cobbler",
+                        ranking: 4,
+                        toHTML: function() {
+                            return '<p class="comment-bubble">' + this.commentText + '</p>';
+                        }
+                    },
+                    {
+                        commentText: "Wat een verschrikkelijk slecht geschreven artikel!",
+                        commentAuthor: "N. Ekbaard",
+                        ranking: 3,
+                        toHTML: function() {
+                            return '<p class="comment-bubble">' + this.commentText + '</p>';
+                        }
+                    }
+                ],
                 render: function() {
                     renderPost(this);
                 },
@@ -287,6 +338,24 @@
                 ranking: 4,
                 link: "http://nos.nl/artikel/2091849-aivd-bestudeert-lijsten-is-leden-nog.html",
                 image: "http://nos.nl/data/image/2016/03/10/263482/864x486.jpg",
+                comments: [
+                    {
+                        commentText: "Ik vind dit maar een gaar artikel!",
+                        commentAuthor: "Squad Cobbler",
+                        ranking: 4,
+                        toHTML: function() {
+                            return '<p class="comment-bubble">' + this.commentText + '</p>';
+                        }
+                    },
+                    {
+                        commentText: "Wat een verschrikkelijk slecht geschreven artikel!",
+                        commentAuthor: "N. Ekbaard",
+                        ranking: 3,
+                        toHTML: function() {
+                            return '<p class="comment-bubble">' + this.commentText + '</p>';
+                        }
+                    }
+                ],
                 render: function() {
                     renderPost(this);
                 },
@@ -332,6 +401,24 @@
                 ranking: 1,
                 link: "http://tweakers.net/nieuws/109179/europese-commissie-plant-klacht-in-mededingingszaak-android.html",
                 video: "<iframe width='100%' height='315' src='https://www.youtube.com/embed/pJfTfsXFbLk?rel=0&amp;controls=0&amp;showinfo=0' frameborder='0' allowfullscreen></iframe>",
+                comments: [
+                    {
+                        commentText: "Ik vind dit maar een gaar artikel!",
+                        commentAuthor: "Squad Cobbler",
+                        ranking: 4,
+                        toHTML: function() {
+                            return '<p class="comment-bubble">' + this.commentText + '</p>';
+                        }
+                    },
+                    {
+                        commentText: "Wat een verschrikkelijk slecht geschreven artikel!",
+                        commentAuthor: "N. Ekbaard",
+                        ranking: 3,
+                        toHTML: function() {
+                            return '<p class="comment-bubble">' + this.commentText + '</p>';
+                        }
+                    }
+                ],
                 render: function() {
                     renderPost(this);
                 },
@@ -341,7 +428,7 @@
             }
 
             //Array of posts
-            var postsArray = [myBlogPosting1, myBlogPosting2, myBlogPosting3, myBlogPosting4, myBlogPosting5, myBlogPosting6]
+            var postsArray = [myBlogPosting1, myBlogPosting2, myBlogPosting3, myBlogPosting4, myBlogPosting5]
 
             //Function to render the blogPost object passed to the function.
             function renderPost(postName) {
@@ -384,25 +471,36 @@
 
                 /********************** Render Comments *********************/
                 if ("comments" in postName) {
+                    //Create a div to put all comments in. We can render this when it's filled with comments.
                     var commentSection = document.createElement('div');
                     commentSection.id = postName.title + "Comments";
+                    //Style the wrapper for the comment section.
+                    commentSection.style.cssText = "background-color: rgb(233, 233, 233); color: #333; margin: 0 -15px -26px -15px; border-bottom-left-radius: 5px;" +
+                            "border-bottom-right-radius: 5px; padding-bottom: 20px;";
 
-                    commentSection.style.cssText = "background-color: grey; color: #FFF;";
+                    commentSection.innerHTML += "<h3 style='padding: 10px 0 0 10px; margin-bottom: 0;'>COMMENTS</h3>";
 
                     document.getElementById(postWrapper.id).appendChild(commentSection);
 
-//                    var commentContent = document.createElement('p');
-//                    commentContent.innerHTML = "Hallo";
-//
-//                    document.getElementById(commentSection.id).appendChild(commentContent);
+                    //Render each comment and append it to the comment section.
                     for (var i = 0; i < postName.comments.length; i++) {
-                        console.log(postName.comments[i].commentText);
+                        //Here we store the specific comment object in a variable to tidy up our code.
+                        var comment = postName.comments[i];
 
                         //Create wrapper div for comment with ID that is equal to commentText
                         var commentWrap = document.createElement('div');
-                        commentWrap.id = postName.comments[i].commentText;
+                        commentWrap.id = comment.commentText;
+
+                        commentWrap.style.cssText = "margin: 0 15px;";
+
                         // Appends the wrapper div to the commentsection.
                         document.getElementById(commentSection.id).appendChild(commentWrap);
+
+                        //Post Author
+                        commentWrap.innerHTML += '<h3 style="display: inline-block">' + comment.commentAuthor + ' says:</h3><br>';
+
+                        //Post Content
+                        commentWrap.innerHTML += comment.toHTML();
                     }
                 }
             }
