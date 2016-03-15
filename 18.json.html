@@ -115,6 +115,12 @@
                 display: inline;
             }
 
+            .comment-rank {
+                font-size: 10px;
+                display: block;
+                color: grey;
+            }
+
             .comment-bubble {
                 border: 5px solid white;
                 padding: 2px 4px;
@@ -164,7 +170,35 @@
                         ranking: 4,
                         toHTML: function() {
                             return '<p class="comment-bubble">' + this.commentText + '</p>';
-                        }
+                        },
+                        comments: [
+                            {
+                                commentText: "Helemaal mee eens. Dit is echt drie keer niets!",
+                                commentAuthor: "Squad Cobbler's Mom",
+                                ranking: 2,
+                                toHTML: function() {
+                                    return '<p class="comment-bubble">' + this.commentText + '</p>';
+                                },
+                            },
+                            {
+                                commentText: "Wat lul jij nou vriend! Je weet niet waar je het over hebt.",
+                                commentAuthor: "Squad Cobbler's Enemy",
+                                ranking: 4,
+                                toHTML: function() {
+                                    return '<p class="comment-bubble">' + this.commentText + '</p>';
+                                },
+                                comments: [
+                                    {
+                                        commentText: "Wat lul jij nou vriend! Je weet niet waar je het over hebt.",
+                                        commentAuthor: "Squad Cobbler's Enemy",
+                                        ranking: 4,
+                                        toHTML: function() {
+                                            return '<p class="comment-bubble">' + this.commentText + '</p>';
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
                     },
                     {
                         commentText: "Wat een verschrikkelijk slecht geschreven artikel!",
@@ -609,6 +643,10 @@
                 document.getElementById(postWrapper.id).appendChild(postAuthor);
 
                 /********************** Render Comments *********************/
+                commentRender(postName);
+            }
+
+            function commentRender(postName) {
                 if ("comments" in postName) {
                     //Create a div to put all comments in. We can render this when it's filled with comments.
                     var commentSection = document.createElement('div');
@@ -619,7 +657,7 @@
 
                     commentSection.innerHTML += "<h3 style='padding: 10px 0 0 10px; margin-bottom: 0;'>COMMENTS</h3>";
 
-                    document.getElementById(postWrapper.id).appendChild(commentSection);
+                    document.getElementById(postName.title).appendChild(commentSection);
 
                     //Render each comment and append it to the comment section.
                     for (var i = 0; i < postName.comments.length; i++) {
@@ -636,7 +674,7 @@
                         document.getElementById(commentSection.id).appendChild(commentWrap);
 
                         //Post Author
-                        commentWrap.innerHTML += '<h3 style="display: inline-block">' + comment.commentAuthor + ' says:</h3><br>';
+                        commentWrap.innerHTML += '<h3 style="display: inline-block; margin-bottom: 0;">' + comment.commentAuthor + ' says:</h3><br><span class="comment-rank">Ranking: ' + comment.ranking + '</span><br>';
 
                         //Post Content
                         commentWrap.innerHTML += comment.toHTML();
