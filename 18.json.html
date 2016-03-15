@@ -123,6 +123,12 @@
                 margin: -10px 0 -5px 0;
                 border-radius: 5px;
             }
+
+            .sponsor-message {
+                margin-top: 0;
+                font-size: 12px;
+                color: grey;
+            }
         </style>
 
         <div id="mainContent">
@@ -210,7 +216,6 @@
                 "van de browser is beschikbaar via de ontwikkelaarspagina.</p>",
                 ranking: 2,
                 link: "http://tweakers.net/nieuws/109173/opera-brengt-ontwikkelaarsversie-van-browser-uit-met-ingebouwde-adblocker.html",
-                image: "http://ic.tweakimg.net/ext/i/imagenormal/2001014305.png",
                 comments: [
                     {
                         commentText: "Ik vind dit maar een gaar artikel!",
@@ -240,6 +245,7 @@
             var myBlogPosting3 = {
                 title: "Willem-Alexander en Máxima zien de twee Rembrandts in Louvre",
                 author: "N. Os",
+                sponsored: true,
                 bodyText: "<p class='first-paragraph'>In het Louvre in Parijs hebben" +
                 " koning Willem-Alexander en koningin Máxima de portretten van Maerten" +
                 " Soolmans en Oopjen Coppit van Rembrandt bezichtigd. Vanaf nu zijn de " +
@@ -340,8 +346,8 @@
                 image: "http://nos.nl/data/image/2016/03/10/263482/864x486.jpg",
                 comments: [
                     {
-                        commentText: "Ik vind dit maar een gaar artikel!",
-                        commentAuthor: "Squad Cobbler",
+                        commentText: "I think this might be illegal.",
+                        commentAuthor: "Jimmy McGill",
                         ranking: 4,
                         toHTML: function() {
                             return '<p class="comment-bubble">' + this.commentText + '</p>';
@@ -366,6 +372,70 @@
 
             var myBlogPosting6 = {
                 title: "'Europese Commissie plant klacht in mededingingszaak Android'",
+                author: "Sander van Voorst",
+                sponsored: true,
+                bodyText: "<p class='first-paragraph'>Bloomberg laat weten dat er tekenen zijn dat de " +
+                "Europese Commissie plant een 'mededeling van punten van bezwaar' " +
+                "aan Google te sturen. Aanleiding zou het feit zijn dat Google apps " +
+                "als Maps en Gmail bundelt met het besturingssysteem, waardoor " +
+                "concurrenten benadeeld worden.</p>" +
+                "<p>De informatie is afkomstig van drie personen, die bekend " +
+                "zijn met het lopende onderzoek naar Android, zo <a href='http://www.bloomberg.com/news/articles/2016-03-09/eu-s-android-probe-said-to-advance-as-rivals-censor-evidence-ill3uqi8'>meldt</a> Bloomberg. " +
+                "De Europese Commissie zou bedrijven, die documenten in het kader " +
+                "van het lopende onderzoek naar Android hebben opgestuurd, gevraagd " +
+                "hebben om deze op grote schaal te ontdoen van vertrouwelijke informatie. " +
+                "De schaal waarop dit gebeurt zou een teken zijn dat de Commissie zich opmaakt " +
+                "voor het uitbrengen van een mededeling van punten van bezwaar, die vergelijkbaar " +
+                "is met een dagvaarding.</p>" +
+                "<p>De informatie wordt uit de documenten verwijderd, omdat een bedrijf dat een " +
+                "dergelijke mededeling ontvangt volgens de " +
+                "<a href='http://ec.europa.eu/competition/publications/factsheets/antitrust_procedures_101_en.pdf'>procedure</a> " +
+                "de mogelijkheid heeft om daarop" +
+                " te reageren en het dossier in te zien. In het andere " +
+                "<a href='http://tweakers.net/nieuws/102506/eu-beschuldigt-google-van-misbruik-machtspositie-met-prijsvergelijken.html'>onderzoek</a> " +
+                "naar Googles " +
+                "machtspositie bij prijsvergelijkingen was een vergelijkbare gang van zaken te observeren." +
+                " Na het horen van Google en de andere betrokken partijen zal de Commissie een ontwerpbeschikking " +
+                "uitvaardigen, die door de nationale toezichthouders wordt gecontroleerd. Een dergelijke beschikking " +
+                "kan een verbod in combinatie met een boete bevatten.</p>" +
+                "<p>In het <a href='http://tweakers.net/nieuws/102505/eu-start-formeel-onderzoek-naar-mogelijk-machtsmisbruik-google-met-android.html'>onderzoek</a>" +
+                " naar Android, dat in april 2015 startte, gaat het de Commissie voornamelijk om de vraag" +
+                " of Google de concurrentie belemmert door aan de makers van smartphones en tablets" +
+                " exclusiviteit te eisen bij installatie van zijn mobiele apps. Daarnaast wordt onderzocht" +
+                " of Google fabrikanten ervan heeft weerhouden eigen versies, oftwel forks, van het " +
+                "Android-besturingssysteem te ontwikkelen. Onder andere Microsoft en Nokia dienden klachten " +
+                "bij de Europese Commissie in over deze praktijken.</p>",
+                ranking: 1,
+                link: "http://tweakers.net/nieuws/109179/europese-commissie-plant-klacht-in-mededingingszaak-android.html",
+                video: "<iframe width='100%' height='315' src='https://www.youtube.com/embed/pJfTfsXFbLk?rel=0&amp;controls=0&amp;showinfo=0' frameborder='0' allowfullscreen></iframe>",
+                comments: [
+                    {
+                        commentText: "Wat is Scripting 4 Designers toch een prachtvak. Keiharde chapeautjes!",
+                        commentAuthor: "SuperCooleBoy12",
+                        ranking: 4,
+                        toHTML: function() {
+                            return '<p class="comment-bubble">' + this.commentText + '</p>';
+                        }
+                    },
+                    {
+                        commentText: "Supertoight video'tje dacht ik zo! Ziet er formidable uit.",
+                        commentAuthor: "Jannes de Boer",
+                        ranking: 3,
+                        toHTML: function() {
+                            return '<p class="comment-bubble">' + this.commentText + '</p>';
+                        }
+                    }
+                ],
+                render: function() {
+                    renderPost(this);
+                },
+                featured: function() {
+                    rankingsChecker(this);
+                }
+            }
+
+            var myBlogPosting7 = {
+                title: "Dit is nog een heel mooi artikel!",
                 author: "Sander van Voorst",
                 bodyText: "<p class='first-paragraph'>Bloomberg laat weten dat er tekenen zijn dat de " +
                 "Europese Commissie plant een 'mededeling van punten van bezwaar' " +
@@ -403,16 +473,80 @@
                 video: "<iframe width='100%' height='315' src='https://www.youtube.com/embed/pJfTfsXFbLk?rel=0&amp;controls=0&amp;showinfo=0' frameborder='0' allowfullscreen></iframe>",
                 comments: [
                     {
-                        commentText: "Ik vind dit maar een gaar artikel!",
-                        commentAuthor: "Squad Cobbler",
+                        commentText: "Wat is Scripting 4 Designers toch een prachtvak. Keiharde chapeautjes!",
+                        commentAuthor: "SuperCooleBoy12",
                         ranking: 4,
                         toHTML: function() {
                             return '<p class="comment-bubble">' + this.commentText + '</p>';
                         }
                     },
                     {
-                        commentText: "Wat een verschrikkelijk slecht geschreven artikel!",
-                        commentAuthor: "N. Ekbaard",
+                        commentText: "Supertoight video'tje dacht ik zo! Ziet er formidable uit.",
+                        commentAuthor: "Jannes de Boer",
+                        ranking: 3,
+                        toHTML: function() {
+                            return '<p class="comment-bubble">' + this.commentText + '</p>';
+                        }
+                    }
+                ],
+                render: function() {
+                    renderPost(this);
+                },
+                featured: function() {
+                    rankingsChecker(this);
+                }
+            }
+
+            var myBlogPosting8 = {
+                title: "Dit is nog een cool S4D artikel!",
+                author: "Sander van Voorst",
+                sponsored: true,
+                bodyText: "<p class='first-paragraph'>Bloomberg laat weten dat er tekenen zijn dat de " +
+                "Europese Commissie plant een 'mededeling van punten van bezwaar' " +
+                "aan Google te sturen. Aanleiding zou het feit zijn dat Google apps " +
+                "als Maps en Gmail bundelt met het besturingssysteem, waardoor " +
+                "concurrenten benadeeld worden.</p>" +
+                "<p>De informatie is afkomstig van drie personen, die bekend " +
+                "zijn met het lopende onderzoek naar Android, zo <a href='http://www.bloomberg.com/news/articles/2016-03-09/eu-s-android-probe-said-to-advance-as-rivals-censor-evidence-ill3uqi8'>meldt</a> Bloomberg. " +
+                "De Europese Commissie zou bedrijven, die documenten in het kader " +
+                "van het lopende onderzoek naar Android hebben opgestuurd, gevraagd " +
+                "hebben om deze op grote schaal te ontdoen van vertrouwelijke informatie. " +
+                "De schaal waarop dit gebeurt zou een teken zijn dat de Commissie zich opmaakt " +
+                "voor het uitbrengen van een mededeling van punten van bezwaar, die vergelijkbaar " +
+                "is met een dagvaarding.</p>" +
+                "<p>De informatie wordt uit de documenten verwijderd, omdat een bedrijf dat een " +
+                "dergelijke mededeling ontvangt volgens de " +
+                "<a href='http://ec.europa.eu/competition/publications/factsheets/antitrust_procedures_101_en.pdf'>procedure</a> " +
+                "de mogelijkheid heeft om daarop" +
+                " te reageren en het dossier in te zien. In het andere " +
+                "<a href='http://tweakers.net/nieuws/102506/eu-beschuldigt-google-van-misbruik-machtspositie-met-prijsvergelijken.html'>onderzoek</a> " +
+                "naar Googles " +
+                "machtspositie bij prijsvergelijkingen was een vergelijkbare gang van zaken te observeren." +
+                " Na het horen van Google en de andere betrokken partijen zal de Commissie een ontwerpbeschikking " +
+                "uitvaardigen, die door de nationale toezichthouders wordt gecontroleerd. Een dergelijke beschikking " +
+                "kan een verbod in combinatie met een boete bevatten.</p>" +
+                "<p>In het <a href='http://tweakers.net/nieuws/102505/eu-start-formeel-onderzoek-naar-mogelijk-machtsmisbruik-google-met-android.html'>onderzoek</a>" +
+                " naar Android, dat in april 2015 startte, gaat het de Commissie voornamelijk om de vraag" +
+                " of Google de concurrentie belemmert door aan de makers van smartphones en tablets" +
+                " exclusiviteit te eisen bij installatie van zijn mobiele apps. Daarnaast wordt onderzocht" +
+                " of Google fabrikanten ervan heeft weerhouden eigen versies, oftwel forks, van het " +
+                "Android-besturingssysteem te ontwikkelen. Onder andere Microsoft en Nokia dienden klachten " +
+                "bij de Europese Commissie in over deze praktijken.</p>",
+                ranking: 3,
+                link: "http://tweakers.net/nieuws/109179/europese-commissie-plant-klacht-in-mededingingszaak-android.html",
+                image: "http://nos.nl/data/image/2016/03/10/263482/864x486.jpg",
+                comments: [
+                    {
+                        commentText: "Wat is Scripting 4 Designers toch een prachtvak. Keiharde chapeautjes!",
+                        commentAuthor: "SuperCooleBoy12",
+                        ranking: 4,
+                        toHTML: function() {
+                            return '<p class="comment-bubble">' + this.commentText + '</p>';
+                        }
+                    },
+                    {
+                        commentText: "Supertoight video'tje dacht ik zo! Ziet er formidable uit.",
+                        commentAuthor: "Jannes de Boer",
                         ranking: 3,
                         toHTML: function() {
                             return '<p class="comment-bubble">' + this.commentText + '</p>';
@@ -428,7 +562,7 @@
             }
 
             //Array of posts
-            var postsArray = [myBlogPosting1, myBlogPosting2, myBlogPosting3, myBlogPosting4, myBlogPosting5]
+            var postsArray = [myBlogPosting1, myBlogPosting2, myBlogPosting3, myBlogPosting4, myBlogPosting5, myBlogPosting6, myBlogPosting7, myBlogPosting8]
 
             //Function to render the blogPost object passed to the function.
             function renderPost(postName) {
@@ -443,10 +577,15 @@
 
                 var postTitle = document.createElement('div');
                 postTitle.innerHTML = '<a class="post-title" href="' + postName.link +'">' + postName.title + '</a>';
+                if (postName.sponsored == true) {
+                    postTitle.innerHTML += '<p class="sponsor-message">This is a message from one of our sponsors.</p>';
+                    postWrapper.style.cssText = "border: 3px solid grey; background-color: #FFF; max-width: 45%; margin: 0 auto; " +
+                            "border-radius: 5px; padding: 10px 15px 26px 15px; margin-bottom: 25px; box-shadow: 2px 2px 10px #d7d7d7;";
+                }
 
                 var postImage = document.createElement('div');
                 postImage.className = "post-image";
-                postImage.innerHTML = '<img src="' + postName.image + '">';
+                postImage.innerHTML = '<a href="' + postName.link + '"><img src="' + postName.image + '"></a>';
 
                 var postVideo = document.createElement('div');
                 postVideo.className = "post-image";
@@ -458,7 +597,7 @@
                 var postAuthor = document.createElement('span');
                 postAuthor.innerHTML = 'Author: ' + postName.author + ' | Ranking: ' + postName.ranking;
 
-                //Check if postName object contains an image key. If so; render it.
+                //Check if wether we want to render a video, an image or nothing.
                 if ("image" in postName) {
                     document.getElementById(postWrapper.id).appendChild(postImage);
                 } else if ("video" in postName) {
