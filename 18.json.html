@@ -171,7 +171,7 @@
                         toHTML: function() {
                             return '<p class="comment-bubble">' + this.commentText + '</p>';
                         },
-                        comments: [
+                        subcomments: [
                             {
                                 commentText: "Helemaal mee eens. Dit is echt drie keer niets!",
                                 commentAuthor: "Squad Cobbler's Mom",
@@ -187,10 +187,10 @@
                                 toHTML: function() {
                                     return '<p class="comment-bubble">' + this.commentText + '</p>';
                                 },
-                                comments: [
+                                subsubcomments: [
                                     {
                                         commentText: "Wat lul jij nou vriend! Je weet niet waar je het over hebt.",
-                                        commentAuthor: "Squad Cobbler's Enemy",
+                                        commentAuthor: "Squad Cobbler's Friend",
                                         ranking: 4,
                                         toHTML: function() {
                                             return '<p class="comment-bubble">' + this.commentText + '</p>';
@@ -206,7 +206,17 @@
                         ranking: 3,
                         toHTML: function() {
                             return '<p class="comment-bubble">' + this.commentText + '</p>';
-                        }
+                        },
+                        subcomments: [
+                            {
+                                commentText: "Wat lul jij nou vriend! Je weet niet waar je het over hebt.",
+                                commentAuthor: "Sans",
+                                ranking: 4,
+                                toHTML: function() {
+                                    return '<p class="comment-bubble">' + this.commentText + '</p>';
+                                }
+                            }
+                        ]
                     }
                 ],
                 render: function() {
@@ -252,12 +262,22 @@
                 link: "http://tweakers.net/nieuws/109173/opera-brengt-ontwikkelaarsversie-van-browser-uit-met-ingebouwde-adblocker.html",
                 comments: [
                     {
-                        commentText: "Ik vind dit maar een gaar artikel!",
-                        commentAuthor: "Squad Cobbler",
+                        commentText: "Anybody wanna be mah friend?",
+                        commentAuthor: "Lkn 4 Friendz",
                         ranking: 4,
                         toHTML: function() {
                             return '<p class="comment-bubble">' + this.commentText + '</p>';
-                        }
+                        },
+                        subcomments: [
+                            {
+                                commentText: "Don't think so. Man you sound pretty pathetic tbh...",
+                                commentAuthor: "Squad Cobbler",
+                                ranking: 4,
+                                toHTML: function() {
+                                    return '<p class="comment-bubble">' + this.commentText + '</p>';
+                                }
+                            }
+                        ]
                     },
                     {
                         commentText: "Wat een verschrikkelijk slecht geschreven artikel!",
@@ -385,7 +405,53 @@
                         ranking: 4,
                         toHTML: function() {
                             return '<p class="comment-bubble">' + this.commentText + '</p>';
-                        }
+                        },
+                        subcomments: [
+                            {
+                                commentText: "AAaaah, Shut up man. Who even cares?",
+                                commentAuthor: "Saul Goodman",
+                                ranking: 4,
+                                toHTML: function() {
+                                    return '<p class="comment-bubble">' + this.commentText + '</p>';
+                                },
+                                subsubcomments: [
+                                    {
+                                        commentText: "I care. Don't steer him on the wrong path. He's like a chimp with a machine gun!",
+                                        commentAuthor: "Chuck McGill",
+                                        ranking: 4,
+                                        toHTML: function() {
+                                            return '<p class="comment-bubble">' + this.commentText + '</p>';
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                commentText: "It obviously is. We should make a RICO case of this. Come on by this tuesday and we'll discuss the details.",
+                                commentAuthor: "Howard Hamlin",
+                                ranking: 4,
+                                toHTML: function() {
+                                    return '<p class="comment-bubble">' + this.commentText + '</p>';
+                                },
+                                subsubcomments: [
+                                    {
+                                        commentText: "Wow really? Will do. Thanks!",
+                                        commentAuthor: "Jimmy McGill",
+                                        ranking: 4,
+                                        toHTML: function() {
+                                            return '<p class="comment-bubble">' + this.commentText + '</p>';
+                                        }
+                                    },
+                                    {
+                                        commentText: "What the hell are you doing. He shouldn't be working with us! He's like a chimp with a machine gun!",
+                                        commentAuthor: "Not Chuck McGill",
+                                        ranking: 4,
+                                        toHTML: function() {
+                                            return '<p class="comment-bubble">' + this.commentText + '</p>';
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
                     },
                     {
                         commentText: "Wat een verschrikkelijk slecht geschreven artikel!",
@@ -678,6 +744,49 @@
 
                         //Post Content
                         commentWrap.innerHTML += comment.toHTML();
+
+                        //Check if comment has subcomments
+                        if ("subcomments" in comment) {
+                            //Iterate over subcomments and render them.
+                            for(x = 0; x < comment.subcomments.length; x++) {
+                                var subcomment = comment.subcomments[x];
+
+                                var subCommentWrap = document.createElement('div');
+                                subCommentWrap.id = subcomment.commentText;
+
+                                subCommentWrap.style.cssText = "margin: 0 20px;";
+
+                                // Appends the wrapper div to the commentsection.
+                                document.getElementById(commentWrap.id).appendChild(subCommentWrap);
+
+                                //Post Author
+                                subCommentWrap.innerHTML += '<h3 style="display: inline-block; margin-bottom: 0;">' + subcomment.commentAuthor + ' replies:</h3><br><span class="comment-rank">Ranking: ' + subcomment.ranking + '</span><br>';
+
+                                //Post Content
+                                subCommentWrap.innerHTML += subcomment.toHTML();
+
+                                if ("subsubcomments" in subcomment) {
+                                    for (a = 0; a < subcomment.subsubcomments.length; a++) {
+                                        console.log('subsubcomment: ' + subcomment.subsubcomments[a].commentText);
+                                        var subsubcomment = subcomment.subsubcomments[a];
+
+                                        var subsubCommentWrap = document.createElement('div');
+                                        subsubCommentWrap.id = subsubcomment.commentText;
+
+                                        subsubCommentWrap.style.cssText = "margin: 0 20px;";
+
+                                        // Appends the wrapper div to the commentsection.
+                                        document.getElementById(subCommentWrap.id).appendChild(subsubCommentWrap);
+
+                                        //Post Author
+                                        subsubCommentWrap.innerHTML += '<h3 style="display: inline-block; margin-bottom: 0;">' + subsubcomment.commentAuthor + ' replies:</h3><br><span class="comment-rank">Ranking: ' + subsubcomment.ranking + '</span><br>';
+
+                                        //Post Content
+                                        subsubCommentWrap.innerHTML += subsubcomment.toHTML();
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
